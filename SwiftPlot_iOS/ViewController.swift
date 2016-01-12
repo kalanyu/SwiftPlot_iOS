@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelegate {
 
-    private var sensorModule = TPHEMGSensor();
+    private var sensorModule = TPHEMGSensor()
+    private var jointEstimator = KLJointAngleEstimator()
     
     //TODO: make this setup able when used in code
     @IBOutlet weak var graphView: SRPlotView! {
