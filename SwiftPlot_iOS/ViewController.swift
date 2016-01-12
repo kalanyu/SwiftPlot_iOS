@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, NSSPlashViewDelegate {
+class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelegate {
 
+    private var sensorModule = TPHEMGSensor();
+    
     //TODO: make this setup able when used in code
     @IBOutlet weak var graphView: SRPlotView! {
         didSet {
@@ -46,6 +48,9 @@ class ViewController: UIViewController, NSSPlashViewDelegate {
         NSRunLoop.currentRunLoop().addTimer(anotherDataTimer!, forMode: NSRunLoopCommonModes)
         // Do any additional setup after loading the view, typically from a nib.
         self.view.layer.backgroundColor = UIColor.redColor().CGColor
+        
+        sensorModule.delegate = self
+        sensorModule.scanForRemoteSensor()
     }
 
     override func viewDidLayoutSubviews() {
@@ -54,9 +59,9 @@ class ViewController: UIViewController, NSSPlashViewDelegate {
     
     func addData2() {
         
-        let cgCount = Double(++count) * 1/60 % 1
+//        let cgCount = Double(++count) * 1/60 % 1
         
-        graphView.addData([cgCount, cgCount, cgCount, cgCount, cgCount , cgCount])
+//        graphView.addData([cgCount, cgCount, cgCount, cgCount, cgCount , cgCount])
         
     }
     //MARK: Implementations
@@ -77,6 +82,29 @@ class ViewController: UIViewController, NSSPlashViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func TPHEMGSensorDidReceiveDataFromRemoteSensor(data: TPHData!) {
+        
+        let emgData : [Double] = [data.emgValue[0].doubleValue, data.emgValue[1].doubleValue, data.emgValue[2].doubleValue, data.emgValue[3].doubleValue, data.emgValue[4].doubleValue, data.emgValue[5].doubleValue]
+        
+        graphView.addData(emgData)
+    }
+    
+    func TPHEMGSensorDidUpdateADCSetting(setting: NSData!) {
+        
+    }
+    
+    func TPHEMGSensorDidUpdateConnectionState(connected: Bool) {
+        
+    }
+    
+    func TPHEMGSensorDidUpdateState() {
+        
+    }
+    
+    func TPHEMGSensorDidUpdateStatusMessage(status: String!) {
+        
     }
 
 
