@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftPlot_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,138 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGs-pG-S3t" customClass="SRPlotView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbR-30-09G">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="FWI-YS-mIn">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FWI-YS-mIn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="FWI-YS-mIn"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-5g-zPI" customClass="CountView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m4t-5g-zPI" secondAttribute="height" multiplier="1:1" id="s0B-3u-42o"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="s0B-3u-42o"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="s0B-3u-42o"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-Ky-aa1" customClass="CountView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m1R-Ky-aa1" secondAttribute="height" multiplier="1:1" id="Iy5-0k-8b4"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Iy5-0k-8b4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Iy5-0k-8b4"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m4t-5g-zPI" firstAttribute="leading" secondItem="NbR-30-09G" secondAttribute="trailing" constant="8" id="7CM-vP-TU5"/>
+                            <constraint firstItem="m1R-Ky-aa1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="AEj-6o-yY3"/>
+                            <constraint firstItem="NbR-30-09G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BR4-6F-kfR"/>
+                            <constraint firstItem="nGs-pG-S3t" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.5:3" id="Dxg-Sb-aX2"/>
+                            <constraint firstItem="nGs-pG-S3t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EWd-r7-rfO"/>
+                            <constraint firstItem="nGs-pG-S3t" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9:1" id="TMx-Kk-7hB"/>
+                            <constraint firstItem="m4t-5g-zPI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="UTs-ld-NBD"/>
+                            <constraint firstItem="m4t-5g-zPI" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="top" id="UfM-5U-yNE"/>
+                            <constraint firstItem="nGs-pG-S3t" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="bottom" constant="184" id="WtQ-18-1YE"/>
+                            <constraint firstItem="NbR-30-09G" firstAttribute="leading" secondItem="m1R-Ky-aa1" secondAttribute="trailing" constant="8" id="dC3-DL-q9d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nGs-pG-S3t" secondAttribute="bottom" constant="41" id="qlr-gL-5Gc"/>
+                            <constraint firstItem="m1R-Ky-aa1" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="top" id="u7N-Ea-OXy"/>
+                            <constraint firstItem="m4t-5g-zPI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="xUN-3b-ABD"/>
+                            <constraint firstItem="NbR-30-09G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="xqK-lZ-9rP"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="nGs-pG-S3t"/>
+                                <exclude reference="NbR-30-09G"/>
+                                <exclude reference="m4t-5g-zPI"/>
+                                <exclude reference="m1R-Ky-aa1"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AEj-6o-yY3"/>
+                                <exclude reference="u7N-Ea-OXy"/>
+                                <exclude reference="Dxg-Sb-aX2"/>
+                                <exclude reference="EWd-r7-rfO"/>
+                                <exclude reference="TMx-Kk-7hB"/>
+                                <exclude reference="WtQ-18-1YE"/>
+                                <exclude reference="BR4-6F-kfR"/>
+                                <exclude reference="dC3-DL-q9d"/>
+                                <exclude reference="xqK-lZ-9rP"/>
+                                <exclude reference="7CM-vP-TU5"/>
+                                <exclude reference="UTs-ld-NBD"/>
+                                <exclude reference="UfM-5U-yNE"/>
+                                <exclude reference="xUN-3b-ABD"/>
+                                <exclude reference="qlr-gL-5Gc"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="nGs-pG-S3t"/>
+                                <include reference="NbR-30-09G"/>
+                                <include reference="m4t-5g-zPI"/>
+                                <include reference="m1R-Ky-aa1"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AEj-6o-yY3"/>
+                                <include reference="u7N-Ea-OXy"/>
+                                <include reference="Dxg-Sb-aX2"/>
+                                <include reference="EWd-r7-rfO"/>
+                                <include reference="TMx-Kk-7hB"/>
+                                <include reference="WtQ-18-1YE"/>
+                                <include reference="BR4-6F-kfR"/>
+                                <include reference="dC3-DL-q9d"/>
+                                <include reference="xqK-lZ-9rP"/>
+                                <include reference="7CM-vP-TU5"/>
+                                <include reference="UTs-ld-NBD"/>
+                                <include reference="UfM-5U-yNE"/>
+                                <exclude reference="xUN-3b-ABD"/>
+                                <include reference="qlr-gL-5Gc"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="nGs-pG-S3t" id="zp3-MJ-aLw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="568.5" y="534.75"/>
         </scene>
     </scenes>
 </document>
