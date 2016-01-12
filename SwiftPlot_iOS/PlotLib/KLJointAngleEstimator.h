@@ -25,6 +25,7 @@
 //- (id)initWithKoikeFilterBufferSize:(int)bufferSize withFlexorThreshold:(float)flexorThreshold andTensorThreshold:(float)tensorThreshold;
 
 - (double)calcEqPoint:(NSMutableArray *)emg;
+- (double)calcStiffness:(NSMutableArray *)emg;
 - (void)setNeutralJointAngle:(NSMutableArray *)emg;
 
 @end

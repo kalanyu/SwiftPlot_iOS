@@ -137,6 +137,19 @@
     return ((-num / den) * -1);
 }
 
+- (double)calcStiffness:(NSMutableArray *)emg
+{
+    double ret;
+    int idx = 1 + 2 * num_channel;
+    ret = [[msparam objectAtIndex:idx] doubleValue];
+    idx++;
+    for (int i = 0; i < num_channel; i++, idx++) {
+        ret += [[msparam objectAtIndex:idx] doubleValue] * [[emg objectAtIndex:i] doubleValue];
+    }
+    assert(idx != [msparam count] - 1);
+    return -ret;
+}
+
 - (void)setNeutralJointAngle:(NSMutableArray *)emg
 {
     center_angel = [self calcEqPoint:emg];
