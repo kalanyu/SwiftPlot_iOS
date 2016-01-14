@@ -28,6 +28,7 @@
 		6060DD4D1C3B893100E79378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6060DD4B1C3B893100E79378 /* LaunchScreen.storyboard */; };
 		6060DD581C3B893100E79378 /* SwiftPlot_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060DD571C3B893100E79378 /* SwiftPlot_iOSTests.swift */; };
 		6060DD631C3B893100E79378 /* SwiftPlot_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060DD621C3B893100E79378 /* SwiftPlot_iOSUITests.swift */; };
+		60F461B21C474C0A006E76D8 /* GuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F461B11C474C0A006E76D8 /* GuageView.swift */; };
 		B068D4B31C44CCA100FD1893 /* TPHEMGSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */; };
 		B068D4B41C44CCA100FD1893 /* TPHData.m in Sources */ = {isa = PBXBuildFile; fileRef = B068D4B11C44CCA100FD1893 /* TPHData.m */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		6060DD5E1C3B893100E79378 /* SwiftPlot_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPlot_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6060DD621C3B893100E79378 /* SwiftPlot_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPlot_iOSUITests.swift; sourceTree = "<group>"; };
 		6060DD641C3B893100E79378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60F461B11C474C0A006E76D8 /* GuageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuageView.swift; sourceTree = "<group>"; };
 		B068D4AE1C44CCA000FD1893 /* SwiftPlot_iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPlot_iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		B068D4AF1C44CCA100FD1893 /* TPHEMGSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPHEMGSensor.h; path = PlotLib/TPHEMGSensor.h; sourceTree = "<group>"; };
 		B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPHEMGSensor.m; path = PlotLib/TPHEMGSensor.m; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				B068D4B51C44CCB400FD1893 /* TPHEMG */,
 				6052BB9B1C448A9900D4A0A7 /* PlotLib */,
 				6060DD421C3B893100E79378 /* AppDelegate.swift */,
+				60F461B11C474C0A006E76D8 /* GuageView.swift */,
 				6060DD441C3B893100E79378 /* ViewController.swift */,
 				6060DD461C3B893100E79378 /* Main.storyboard */,
 				6060DD491C3B893100E79378 /* Assets.xcassets */,
@@ -336,6 +339,7 @@
 				6052BBB81C448A9900D4A0A7 /* SRPlotSegment.swift in Sources */,
 				6060DD451C3B893100E79378 /* ViewController.swift in Sources */,
 				6052BBB21C448A9900D4A0A7 /* NSColor+Prism.swift in Sources */,
+				60F461B21C474C0A006E76D8 /* GuageView.swift in Sources */,
 				6052BBB41C448A9900D4A0A7 /* NSView+Center.swift in Sources */,
 				B068D4B31C44CCA100FD1893 /* TPHEMGSensor.m in Sources */,
 				6060DD431C3B893100E79378 /* AppDelegate.swift in Sources */,

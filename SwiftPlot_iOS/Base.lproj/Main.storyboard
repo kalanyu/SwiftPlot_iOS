@@ -76,23 +76,47 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-1T-83b" customClass="GuageView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="R30-ta-zQz"/>
+                                    <constraint firstAttribute="height" constant="128" id="wm6-Lr-jT8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="R30-ta-zQz"/>
+                                        <exclude reference="wm6-Lr-jT8"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="R30-ta-zQz"/>
+                                        <exclude reference="wm6-Lr-jT8"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="j8C-1T-83b" firstAttribute="centerX" secondItem="NbR-30-09G" secondAttribute="centerX" id="1Ne-TO-EFW"/>
                             <constraint firstItem="m4t-5g-zPI" firstAttribute="leading" secondItem="NbR-30-09G" secondAttribute="trailing" constant="8" id="7CM-vP-TU5"/>
-                            <constraint firstItem="m1R-Ky-aa1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="AEj-6o-yY3"/>
+                            <constraint firstItem="m1R-Ky-aa1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:4" id="AEj-6o-yY3"/>
                             <constraint firstItem="NbR-30-09G" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BR4-6F-kfR"/>
                             <constraint firstItem="nGs-pG-S3t" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.5:3" id="Dxg-Sb-aX2"/>
                             <constraint firstItem="nGs-pG-S3t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EWd-r7-rfO"/>
                             <constraint firstItem="nGs-pG-S3t" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9:1" id="TMx-Kk-7hB"/>
-                            <constraint firstItem="m4t-5g-zPI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="UTs-ld-NBD"/>
+                            <constraint firstItem="m4t-5g-zPI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:4" id="UTs-ld-NBD"/>
                             <constraint firstItem="m4t-5g-zPI" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="top" id="UfM-5U-yNE"/>
                             <constraint firstItem="nGs-pG-S3t" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="bottom" constant="184" id="WtQ-18-1YE"/>
                             <constraint firstItem="NbR-30-09G" firstAttribute="leading" secondItem="m1R-Ky-aa1" secondAttribute="trailing" constant="8" id="dC3-DL-q9d"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nGs-pG-S3t" secondAttribute="bottom" constant="41" id="qlr-gL-5Gc"/>
+                            <constraint firstItem="j8C-1T-83b" firstAttribute="height" secondItem="m4t-5g-zPI" secondAttribute="height" multiplier="1:3" id="rVG-mU-Yxz"/>
                             <constraint firstItem="m1R-Ky-aa1" firstAttribute="top" secondItem="NbR-30-09G" secondAttribute="top" id="u7N-Ea-OXy"/>
+                            <constraint firstItem="j8C-1T-83b" firstAttribute="top" secondItem="m4t-5g-zPI" secondAttribute="bottom" constant="8" id="wLH-hO-ZtC"/>
                             <constraint firstItem="m4t-5g-zPI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="xUN-3b-ABD"/>
                             <constraint firstItem="NbR-30-09G" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="xqK-lZ-9rP"/>
+                            <constraint firstItem="j8C-1T-83b" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9:1" id="yAa-2j-WiR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -100,6 +124,7 @@
                                 <exclude reference="NbR-30-09G"/>
                                 <exclude reference="m4t-5g-zPI"/>
                                 <exclude reference="m1R-Ky-aa1"/>
+                                <exclude reference="j8C-1T-83b"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="AEj-6o-yY3"/>
@@ -108,6 +133,10 @@
                                 <exclude reference="EWd-r7-rfO"/>
                                 <exclude reference="TMx-Kk-7hB"/>
                                 <exclude reference="WtQ-18-1YE"/>
+                                <exclude reference="1Ne-TO-EFW"/>
+                                <exclude reference="rVG-mU-Yxz"/>
+                                <exclude reference="wLH-hO-ZtC"/>
+                                <exclude reference="yAa-2j-WiR"/>
                                 <exclude reference="BR4-6F-kfR"/>
                                 <exclude reference="dC3-DL-q9d"/>
                                 <exclude reference="xqK-lZ-9rP"/>
@@ -124,6 +153,7 @@
                                 <include reference="NbR-30-09G"/>
                                 <include reference="m4t-5g-zPI"/>
                                 <include reference="m1R-Ky-aa1"/>
+                                <include reference="j8C-1T-83b"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="AEj-6o-yY3"/>
@@ -132,6 +162,10 @@
                                 <include reference="EWd-r7-rfO"/>
                                 <include reference="TMx-Kk-7hB"/>
                                 <include reference="WtQ-18-1YE"/>
+                                <include reference="1Ne-TO-EFW"/>
+                                <include reference="rVG-mU-Yxz"/>
+                                <include reference="wLH-hO-ZtC"/>
+                                <include reference="yAa-2j-WiR"/>
                                 <include reference="BR4-6F-kfR"/>
                                 <include reference="dC3-DL-q9d"/>
                                 <include reference="xqK-lZ-9rP"/>
@@ -145,6 +179,7 @@
                     </view>
                     <connections>
                         <outlet property="graphView" destination="nGs-pG-S3t" id="zp3-MJ-aLw"/>
+                        <outlet property="stiffnessView" destination="j8C-1T-83b" id="i3s-Xk-psB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

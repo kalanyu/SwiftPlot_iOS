@@ -13,6 +13,8 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     private var sensorModule = TPHEMGSensor()
     private var jointEstimator = KLJointAngleEstimator()
     
+
+    @IBOutlet weak var stiffnessView: GuageView!
     //TODO: make this setup able when used in code
     @IBOutlet weak var graphView: SRPlotView! {
         didSet {
@@ -50,19 +52,20 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
         // Do any additional setup after loading the view, typically from a nib.
         self.view.layer.backgroundColor = UIColor.redColor().CGColor
         
-        sensorModule.delegate = self
-        sensorModule.scanForRemoteSensor()
+//        sensorModule.delegate = self
+//        sensorModule.scanForRemoteSensor()
     }
 
-    override func viewDidLayoutSubviews() {
-        print(self.view.frame, graphView.frame, graphView.bounds, graphView.layer.frame, graphView.layer.bounds)
-    }
+//    override func viewDidLayoutSubviews() {
+//        print(self.view.frame, graphView.frame, graphView.bounds, graphView.layer.frame, graphView.layer.bounds)
+//    }
     
     func addData2() {
         
-//        let cgCount = Double(++count) * 1/60 % 1
+        let cgCount = Double(++count) * 1/60 % 1
         
-//        graphView.addData([cgCount, cgCount, cgCount, cgCount, cgCount , cgCount])
+        graphView.addData([cgCount, cgCount, cgCount, cgCount, cgCount , cgCount])
+        stiffnessView.add(cgCount)
         
     }
     //MARK: Implementations
