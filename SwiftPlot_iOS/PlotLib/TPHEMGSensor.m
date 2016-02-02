@@ -8,20 +8,11 @@
 
 #import "TPHEMGSensor.h"
 
-BOOL TPHEMGSensorStateScanning = NO;
-BOOL TPHEMGSensorStateStopScanning = NO;
-BOOL TPHEMGSensorStateDiscovered = NO;
-BOOL TPHEMGSensorStateConnected = NO;
-BOOL TPHEMGSensorStateDisconnected = NO;
-BOOL TPHEMGSensorStateListening = NO;
-BOOL TPHEMGSensorStateTransmitting = NO;
-
 @implementation TPHEMGSensor
 
 @synthesize delegate;
 @synthesize connectionState = _connectionState;
 @synthesize ADCSettingByte;
-@synthesize TPHEMGDeviceName;
 @synthesize sensorGain1;
 @synthesize sensorGain2;
 @synthesize sensorGain3;
@@ -67,8 +58,16 @@ BOOL TPHEMGSensorStateTransmitting = NO;
         sensorOverSample5 = 0;
         sensorOverSample6 = 0;
         
-        
-        
+    }
+    return self;
+}
+
+- (id)initWithDelegate:(id<TPHEMGSensorDelegate>)TPHDelegate
+{
+    self = [super init];
+    if (self) {
+        self = [self init];
+        self.delegate = TPHDelegate;
     }
     return self;
 }
@@ -122,9 +121,6 @@ BOOL TPHEMGSensorStateTransmitting = NO;
     [centralManager scanForPeripheralsWithServices:[NSArray arrayWithObject:TPHEMGSensorServiceUUID] options:nil];
     NSLog(@"Start scanning");
     [[self delegate] TPHEMGSensorDidUpdateStatusMessage:@"Scanning for remote sensor..."];
-    TPHEMGSensorStateStopScanning = NO;
-    TPHEMGSensorStateScanning = YES;
-    [[self delegate] TPHEMGSensorDidUpdateState];
 }
 
 - (void)stopScanForPerpherals
@@ -132,9 +128,6 @@ BOOL TPHEMGSensorStateTransmitting = NO;
     [centralManager stopScan];
     NSLog(@"Scaning stopped");
     [[self delegate] TPHEMGSensorDidUpdateStatusMessage:@"Stop scanning for remote sensor"];
-    TPHEMGSensorStateStopScanning = YES;
-    TPHEMGSensorStateScanning = NO;
-    [[self delegate] TPHEMGSensorDidUpdateState];
 }
 
 - (void)connectPeripheral:(CBPeripheral *)peripheral
@@ -152,11 +145,7 @@ BOOL TPHEMGSensorStateTransmitting = NO;
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *,id> *)advertisementData RSSI:(NSNumber *)RSSI
 {
     NSLog(@"Discovered %@", peripheral.name);
-    TPHEMGDeviceName = peripheral.name;
     [[self delegate] TPHEMGSensorDidUpdateStatusMessage:[NSString stringWithFormat:@"Discovered %@", peripheral.name]];
-    
-    TPHEMGSensorStateDiscovered = YES;
-    [[self delegate] TPHEMGSensorDidUpdateState];
     
     m_peripheral = peripheral;
     [centralManager connectPeripheral:m_peripheral options:nil];
@@ -171,19 +160,30 @@ BOOL TPHEMGSensorStateTransmitting = NO;
     [[self delegate] TPHEMGSensorDidUpdateStatusMessage:[NSString stringWithFormat:@"Disconnected from %@", peripheral.name]];
     _connectionState = NO;
     [[self delegate] TPHEMGSensorDidUpdateConnectionState:_connectionState];
-    
-    TPHEMGSensorStateDisconnected = YES;
-    TPHEMGSensorStateConnected = NO;
-    TPHEMGSensorStateListening = NO;
-    TPHEMGSensorStateTransmitting = NO;
-    TPHEMGSensorStateDiscovered = NO;
-    [[self delegate] TPHEMGSensorDidUpdateState];
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
-    if (CBCentralManagerStatePoweredOn) {
-        NSLog(@"centralManager is on");
+    switch (centralManager.state) {
+        case CBCentralManagerStateResetting:
+            NSLog(@"Resetting connection");
+            break;
+        case CBCentralManagerStateUnsupported:
+            NSLog(@"Device unsupport");
+            break;
+        case CBCentralManagerStateUnauthorized:
+            NSLog(@"Unauthorized to use BLE");
+            break;
+        case CBCentralManagerStatePoweredOff:
+            NSLog(@"Bluetooth is off");
+            break;
+        case CBCentralManagerStatePoweredOn:
+            NSLog(@"Bluetooth is on");
+            break;
+            
+        default:
+            NSLog(@"Unknown error occured");
+            break;
     }
 }
 
@@ -194,10 +194,6 @@ BOOL TPHEMGSensorStateTransmitting = NO;
     [[self delegate] TPHEMGSensorDidUpdateConnectionState:_connectionState];
     [[self delegate] TPHEMGSensorDidUpdateStatusMessage:[NSString stringWithFormat:@"Connected with %@", peripheral.name]];
     [self stopScanForPerpherals];
-    
-    TPHEMGSensorStateDisconnected = NO;
-    TPHEMGSensorStateConnected = YES;
-    [[self delegate] TPHEMGSensorDidUpdateState];
     
     peripheral.delegate = self;
     
@@ -228,8 +224,6 @@ BOOL TPHEMGSensorStateTransmitting = NO;
             emg_characteristic = characteristic;
             [m_peripheral setNotifyValue:YES forCharacteristic:emg_characteristic];
             [[self delegate] TPHEMGSensorDidUpdateStatusMessage:@"Listening for signal"];
-            TPHEMGSensorStateListening = YES;
-            [[self delegate] TPHEMGSensorDidUpdateState];
         }
         if ([characteristic.UUID isEqual:TPHADCSettingCharacteristicUUID]) {
             NSLog(@"Discovered characteristic %@", characteristic.UUID);
@@ -242,8 +236,6 @@ BOOL TPHEMGSensorStateTransmitting = NO;
             //[m_peripheral readValueForCharacteristic:command_characteristic];
             [m_peripheral writeValue:startByte forCharacteristic:command_characteristic type:CBCharacteristicWriteWithResponse];
             [[self delegate] TPHEMGSensorDidUpdateStatusMessage:@"Telling sensor to start transmitting signal"];
-            TPHEMGSensorStateTransmitting = YES;
-            [[self delegate] TPHEMGSensorDidUpdateState];
         }
         [NSThread sleepForTimeInterval:3];
     }

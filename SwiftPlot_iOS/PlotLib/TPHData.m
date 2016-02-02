@@ -125,6 +125,13 @@
     processed5 = [[signal objectAtIndex:4] floatValue];
     processed6 = [[signal objectAtIndex:5] floatValue];
     
+    [signal addObject:[emgValue objectAtIndex:4]];
+    [signal addObject:[emgValue objectAtIndex:5]];
+    [signal addObject:[emgValue objectAtIndex:3]];
+    [signal addObject:[emgValue objectAtIndex:1]];
+    [signal addObject:[emgValue objectAtIndex:0]];
+    [signal addObject:[emgValue objectAtIndex:2]];
+    
     return signal;
 }
 

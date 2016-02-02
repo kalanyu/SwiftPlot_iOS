@@ -15,7 +15,6 @@
 - (void)TPHEMGSensorDidReceiveDataFromRemoteSensor:(TPHData *)data;
 - (void)TPHEMGSensorDidUpdateConnectionState:(BOOL)connected;
 - (void)TPHEMGSensorDidUpdateStatusMessage:(NSString *)status;
-- (void)TPHEMGSensorDidUpdateState;
 - (void)TPHEMGSensorDidUpdateADCSetting:(NSData *)setting;
 
 @end
@@ -41,20 +40,12 @@
     dispatch_queue_t centralQueue;
     
     BOOL _connectionState;
+    
 }
 
 @property (retain) id delegate;
 @property (nonatomic, readonly) BOOL connectionState;
 @property (readonly) NSData *ADCSettingByte;
-@property (readonly) NSString *TPHEMGDeviceName;
-
-extern BOOL TPHEMGSensorStateScanning;
-extern BOOL TPHEMGSensorStateStopScanning;
-extern BOOL TPHEMGSensorStateDiscovered;
-extern BOOL TPHEMGSensorStateConnected;
-extern BOOL TPHEMGSensorStateDisconnected;
-extern BOOL TPHEMGSensorStateListening;
-extern BOOL TPHEMGSensorStateTransmitting;
 
 @property (readonly) int sensorGain1;
 @property (readonly) int sensorGain2;
@@ -69,6 +60,7 @@ extern BOOL TPHEMGSensorStateTransmitting;
 @property (readonly) int sensorOverSample5;
 @property (readonly) int sensorOverSample6;
 
+- (id)initWithDelegate:(id<TPHEMGSensorDelegate>)TPHDelegate;
 - (void)scanForRemoteSensor;
 - (void)disconnectFromRemoteSensor;
 - (void)requestADCSettingInformation;

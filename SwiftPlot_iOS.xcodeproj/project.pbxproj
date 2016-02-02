@@ -31,6 +31,7 @@
 		60F461B21C474C0A006E76D8 /* GuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F461B11C474C0A006E76D8 /* GuageView.swift */; };
 		B068D4B31C44CCA100FD1893 /* TPHEMGSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */; };
 		B068D4B41C44CCA100FD1893 /* TPHData.m in Sources */ = {isa = PBXBuildFile; fileRef = B068D4B11C44CCA100FD1893 /* TPHData.m */; };
+		B0AB2A351C60B4CA00AD865E /* KLJointAngleEstimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = B0AB2A341C60B4CA00AD865E /* KLJointAngleEstimator.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPHEMGSensor.m; path = PlotLib/TPHEMGSensor.m; sourceTree = "<group>"; };
 		B068D4B11C44CCA100FD1893 /* TPHData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPHData.m; path = PlotLib/TPHData.m; sourceTree = "<group>"; };
 		B068D4B21C44CCA100FD1893 /* TPHData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPHData.h; path = PlotLib/TPHData.h; sourceTree = "<group>"; };
+		B0AB2A331C60B4CA00AD865E /* KLJointAngleEstimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLJointAngleEstimator.h; path = PlotLib/KLJointAngleEstimator.h; sourceTree = "<group>"; };
+		B0AB2A341C60B4CA00AD865E /* KLJointAngleEstimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = KLJointAngleEstimator.mm; path = PlotLib/KLJointAngleEstimator.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,8 @@
 		B068D4B51C44CCB400FD1893 /* TPHEMG */ = {
 			isa = PBXGroup;
 			children = (
+				B0AB2A331C60B4CA00AD865E /* KLJointAngleEstimator.h */,
+				B0AB2A341C60B4CA00AD865E /* KLJointAngleEstimator.mm */,
 				B068D4AF1C44CCA100FD1893 /* TPHEMGSensor.h */,
 				B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */,
 				B068D4B11C44CCA100FD1893 /* TPHData.m */,
@@ -348,6 +353,7 @@
 				6052BBAD1C448A9900D4A0A7 /* CALayer+FadableBG.swift in Sources */,
 				6052BBAB1C448A9900D4A0A7 /* AxesDrawer.swift in Sources */,
 				6052BBB71C448A9900D4A0A7 /* SRPlotAxe.swift in Sources */,
+				B0AB2A351C60B4CA00AD865E /* KLJointAngleEstimator.mm in Sources */,
 				6052BBAE1C448A9900D4A0A7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

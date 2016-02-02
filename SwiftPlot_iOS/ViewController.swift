@@ -93,6 +93,13 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
         let emgData : [Double] = [data.emgValue[0].doubleValue, data.emgValue[1].doubleValue, data.emgValue[2].doubleValue, data.emgValue[3].doubleValue, data.emgValue[4].doubleValue, data.emgValue[5].doubleValue]
         
         graphView.addData(emgData)
+        
+        let jointStiffness : Double = jointEstimator.calcStiffness(data.emgValueForJointEstimation)
+        stiffnessView.add(jointStiffness)
+        
+        
+        
+        
     }
     
     func TPHEMGSensorDidUpdateADCSetting(setting: NSData!) {
