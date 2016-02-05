@@ -13,6 +13,9 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     private var sensorModule = TPHEMGSensor()
     private var jointEstimator = KLJointAngleEstimator()
     
+    private var jointStiffness : Double = 0
+    private var jointAngle : Double = 0
+    
 
     @IBOutlet weak var angleValueView: CountView! {
         didSet {
@@ -21,7 +24,9 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     }
     @IBOutlet weak var stiffnessView: GuageView! {
         didSet {
-            stiffnessView.threshold = 0.8;
+            stiffnessView.threshold = 1
+            stiffnessView.lowThreshold = 0.4
+            stiffnessView.title = "Joint Stiffness"
         }
     }
     //TODO: make this setup able when used in code
@@ -98,18 +103,19 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     }
     
     func TPHEMGSensorDidReceiveDataFromRemoteSensor(data: TPHData!) {
-        
         let emgData : [Double] = [data.emgValue[0].doubleValue, data.emgValue[1].doubleValue, data.emgValue[2].doubleValue, data.emgValue[3].doubleValue, data.emgValue[4].doubleValue, data.emgValue[5].doubleValue]
         
         graphView.addData(emgData)
         
-        let jointStiffness : Double = jointEstimator.calcStiffness(data.emgValueForJointEstimation)
-        stiffnessView.add(jointStiffness)
+        jointStiffness = jointEstimator.calcStiffness(data.emgValueForJointEstimation)
+        jointAngle = jointEstimator.calcEqPoint(data.emgValueForJointEstimation)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.stiffnessView.add(self.jointStiffness)
+            self.angleValueView.countText = String(format: "%.4f", self.jointAngle)
+        })
         
-        let jointAngle : Double = jointEstimator.calcEqPoint(data.emgValueForJointEstimation)
         NSLog("Joint Stiffness: %f Angle: %f\n", jointStiffness, jointAngle)
-        
-        angleValueView.countText = String(format: "%.2f", jointAngle)
+
         
         
     }
