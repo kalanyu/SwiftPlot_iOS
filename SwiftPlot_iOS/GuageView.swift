@@ -31,6 +31,7 @@ import UIKit
     }
     
     var threshold : Double = 1;
+    var lowThreshold : Double = 0;
     
     var dataStream : [CGFloat] = [0,0]
     
@@ -104,7 +105,7 @@ import UIKit
     func add(data: Double) {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1/60)
-        barMask.bounds.size.width = (self.frame.width) * CGFloat(minMaxNormalization(Double(data), min: 0.4, max: threshold))
+        barMask.bounds.size.width = (self.frame.width) * CGFloat(minMaxNormalization(Double(data), min: lowThreshold, max: threshold))
         CATransaction.commit()
     }
     
