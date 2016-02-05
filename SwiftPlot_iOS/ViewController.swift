@@ -14,7 +14,16 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     private var jointEstimator = KLJointAngleEstimator()
     
 
-    @IBOutlet weak var stiffnessView: GuageView!
+    @IBOutlet weak var angleValueView: CountView! {
+        didSet {
+            angleValueView.title = "Joint Angle"
+        }
+    }
+    @IBOutlet weak var stiffnessView: GuageView! {
+        didSet {
+            stiffnessView.threshold = 0.8;
+        }
+    }
     //TODO: make this setup able when used in code
     @IBOutlet weak var graphView: SRPlotView! {
         didSet {
@@ -47,13 +56,13 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        anotherDataTimer = NSTimer(timeInterval:1/60, target: self, selector: "addData2", userInfo: nil, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(anotherDataTimer!, forMode: NSRunLoopCommonModes)
+//        anotherDataTimer = NSTimer(timeInterval:1/60, target: self, selector: "addData2", userInfo: nil, repeats: true)
+//        NSRunLoop.currentRunLoop().addTimer(anotherDataTimer!, forMode: NSRunLoopCommonModes)
         // Do any additional setup after loading the view, typically from a nib.
         self.view.layer.backgroundColor = UIColor.redColor().CGColor
         
-//        sensorModule.delegate = self
-//        sensorModule.scanForRemoteSensor()
+        sensorModule.delegate = self
+        sensorModule.scanForRemoteSensor()
     }
 
 //    override func viewDidLayoutSubviews() {
@@ -97,7 +106,10 @@ class ViewController: UIViewController, NSSPlashViewDelegate, TPHEMGSensorDelega
         let jointStiffness : Double = jointEstimator.calcStiffness(data.emgValueForJointEstimation)
         stiffnessView.add(jointStiffness)
         
+        let jointAngle : Double = jointEstimator.calcEqPoint(data.emgValueForJointEstimation)
+        NSLog("Joint Stiffness: %f Angle: %f\n", jointStiffness, jointAngle)
         
+        angleValueView.countText = String(format: "%.2f", jointAngle)
         
         
     }

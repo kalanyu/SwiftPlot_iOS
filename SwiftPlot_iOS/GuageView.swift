@@ -104,7 +104,7 @@ import UIKit
     func add(data: Double) {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1/60)
-        barMask.bounds.size.width = (self.frame.width) * CGFloat(minMaxNormalization(Double(data), min: 0, max: threshold))
+        barMask.bounds.size.width = (self.frame.width) * CGFloat(minMaxNormalization(Double(data), min: 0.4, max: threshold))
         CATransaction.commit()
     }
     

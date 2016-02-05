@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftPlot_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SMKEMG_for_iPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGs-pG-S3t" customClass="SRPlotView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGs-pG-S3t" customClass="SRPlotView" customModule="SMKEMG_for_iPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -42,7 +42,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-5g-zPI" customClass="CountView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4t-5g-zPI" customClass="CountView" customModule="SMKEMG_for_iPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -59,7 +59,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-Ky-aa1" customClass="CountView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1R-Ky-aa1" customClass="CountView" customModule="SMKEMG_for_iPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -76,7 +76,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-1T-83b" customClass="GuageView" customModule="SwiftPlot_iOS" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-1T-83b" customClass="GuageView" customModule="SMKEMG_for_iPad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -127,24 +127,24 @@
                                 <exclude reference="j8C-1T-83b"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="AEj-6o-yY3"/>
-                                <exclude reference="u7N-Ea-OXy"/>
-                                <exclude reference="Dxg-Sb-aX2"/>
-                                <exclude reference="EWd-r7-rfO"/>
-                                <exclude reference="TMx-Kk-7hB"/>
-                                <exclude reference="WtQ-18-1YE"/>
+                                <exclude reference="qlr-gL-5Gc"/>
+                                <exclude reference="BR4-6F-kfR"/>
+                                <exclude reference="dC3-DL-q9d"/>
+                                <exclude reference="xqK-lZ-9rP"/>
                                 <exclude reference="1Ne-TO-EFW"/>
                                 <exclude reference="rVG-mU-Yxz"/>
                                 <exclude reference="wLH-hO-ZtC"/>
                                 <exclude reference="yAa-2j-WiR"/>
-                                <exclude reference="BR4-6F-kfR"/>
-                                <exclude reference="dC3-DL-q9d"/>
-                                <exclude reference="xqK-lZ-9rP"/>
+                                <exclude reference="AEj-6o-yY3"/>
+                                <exclude reference="u7N-Ea-OXy"/>
                                 <exclude reference="7CM-vP-TU5"/>
                                 <exclude reference="UTs-ld-NBD"/>
                                 <exclude reference="UfM-5U-yNE"/>
                                 <exclude reference="xUN-3b-ABD"/>
-                                <exclude reference="qlr-gL-5Gc"/>
+                                <exclude reference="Dxg-Sb-aX2"/>
+                                <exclude reference="EWd-r7-rfO"/>
+                                <exclude reference="TMx-Kk-7hB"/>
+                                <exclude reference="WtQ-18-1YE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -156,28 +156,29 @@
                                 <include reference="j8C-1T-83b"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="AEj-6o-yY3"/>
-                                <include reference="u7N-Ea-OXy"/>
-                                <include reference="Dxg-Sb-aX2"/>
-                                <include reference="EWd-r7-rfO"/>
-                                <include reference="TMx-Kk-7hB"/>
-                                <include reference="WtQ-18-1YE"/>
+                                <include reference="qlr-gL-5Gc"/>
+                                <include reference="BR4-6F-kfR"/>
+                                <include reference="dC3-DL-q9d"/>
+                                <include reference="xqK-lZ-9rP"/>
                                 <include reference="1Ne-TO-EFW"/>
                                 <include reference="rVG-mU-Yxz"/>
                                 <include reference="wLH-hO-ZtC"/>
                                 <include reference="yAa-2j-WiR"/>
-                                <include reference="BR4-6F-kfR"/>
-                                <include reference="dC3-DL-q9d"/>
-                                <include reference="xqK-lZ-9rP"/>
+                                <include reference="AEj-6o-yY3"/>
+                                <include reference="u7N-Ea-OXy"/>
                                 <include reference="7CM-vP-TU5"/>
                                 <include reference="UTs-ld-NBD"/>
                                 <include reference="UfM-5U-yNE"/>
                                 <exclude reference="xUN-3b-ABD"/>
-                                <include reference="qlr-gL-5Gc"/>
+                                <include reference="Dxg-Sb-aX2"/>
+                                <include reference="EWd-r7-rfO"/>
+                                <include reference="TMx-Kk-7hB"/>
+                                <include reference="WtQ-18-1YE"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="angleValueView" destination="m4t-5g-zPI" id="st6-xE-l6w"/>
                         <outlet property="graphView" destination="nGs-pG-S3t" id="zp3-MJ-aLw"/>
                         <outlet property="stiffnessView" destination="j8C-1T-83b" id="i3s-Xk-psB"/>
                     </connections>

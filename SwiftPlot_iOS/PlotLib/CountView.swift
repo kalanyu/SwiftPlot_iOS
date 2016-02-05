@@ -38,7 +38,7 @@ import UIKit
         }
     }
     
-    private var countText : String = "0" {
+    var countText : String = "0" {
         didSet {
             //already has layout constraints, no need for frame adjustment
             //TODO:size adjustments for readability

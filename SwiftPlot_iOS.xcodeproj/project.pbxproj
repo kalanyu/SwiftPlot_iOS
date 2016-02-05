@@ -66,7 +66,7 @@
 		6052BBA81C448A9900D4A0A7 /* SRPlotAxe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRPlotAxe.swift; sourceTree = "<group>"; };
 		6052BBA91C448A9900D4A0A7 /* SRPlotSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRPlotSegment.swift; sourceTree = "<group>"; };
 		6052BBAA1C448A9900D4A0A7 /* SRPlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRPlotView.swift; sourceTree = "<group>"; };
-		6060DD3F1C3B893100E79378 /* SwiftPlot_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPlot_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6060DD3F1C3B893100E79378 /* SMKEMG for iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMKEMG for iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6060DD421C3B893100E79378 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6060DD441C3B893100E79378 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6060DD471C3B893100E79378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		6060DD5E1C3B893100E79378 /* SwiftPlot_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPlot_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6060DD621C3B893100E79378 /* SwiftPlot_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPlot_iOSUITests.swift; sourceTree = "<group>"; };
 		6060DD641C3B893100E79378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60F461B11C474C0A006E76D8 /* GuageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuageView.swift; sourceTree = "<group>"; };
+		60F461B11C474C0A006E76D8 /* GuageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuageView.swift; path = ../GuageView.swift; sourceTree = "<group>"; };
 		B068D4AE1C44CCA000FD1893 /* SwiftPlot_iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPlot_iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		B068D4AF1C44CCA100FD1893 /* TPHEMGSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPHEMGSensor.h; path = PlotLib/TPHEMGSensor.h; sourceTree = "<group>"; };
 		B068D4B01C44CCA100FD1893 /* TPHEMGSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPHEMGSensor.m; path = PlotLib/TPHEMGSensor.m; sourceTree = "<group>"; };
@@ -122,6 +122,7 @@
 				6052BB9E1C448A9900D4A0A7 /* CALayer+FadableBG.swift */,
 				6052BB9F1C448A9900D4A0A7 /* Constants.swift */,
 				6052BBA01C448A9900D4A0A7 /* CountView.swift */,
+				60F461B11C474C0A006E76D8 /* GuageView.swift */,
 				6052BBA11C448A9900D4A0A7 /* HashDrawer.swift */,
 				6052BBA31C448A9900D4A0A7 /* NSColor+Prism.swift */,
 				6052BBA41C448A9900D4A0A7 /* NSSpashBGView.swift */,
@@ -149,7 +150,7 @@
 		6060DD401C3B893100E79378 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6060DD3F1C3B893100E79378 /* SwiftPlot_iOS.app */,
+				6060DD3F1C3B893100E79378 /* SMKEMG for iPad.app */,
 				6060DD531C3B893100E79378 /* SwiftPlot_iOSTests.xctest */,
 				6060DD5E1C3B893100E79378 /* SwiftPlot_iOSUITests.xctest */,
 			);
@@ -162,7 +163,6 @@
 				B068D4B51C44CCB400FD1893 /* TPHEMG */,
 				6052BB9B1C448A9900D4A0A7 /* PlotLib */,
 				6060DD421C3B893100E79378 /* AppDelegate.swift */,
-				60F461B11C474C0A006E76D8 /* GuageView.swift */,
 				6060DD441C3B893100E79378 /* ViewController.swift */,
 				6060DD461C3B893100E79378 /* Main.storyboard */,
 				6060DD491C3B893100E79378 /* Assets.xcassets */,
@@ -220,7 +220,7 @@
 			);
 			name = SwiftPlot_iOS;
 			productName = SwiftPlot_iOS;
-			productReference = 6060DD3F1C3B893100E79378 /* SwiftPlot_iOS.app */;
+			productReference = 6060DD3F1C3B893100E79378 /* SMKEMG for iPad.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6060DD521C3B893100E79378 /* SwiftPlot_iOSTests */ = {
@@ -271,7 +271,7 @@
 				TargetAttributes = {
 					6060DD3E1C3B893100E79378 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 5J999M2VCN;
+						DevelopmentTeam = LV4TZ9M6Q9;
 					};
 					6060DD521C3B893100E79378 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -502,7 +502,7 @@
 				INFOPLIST_FILE = SwiftPlot_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.swift.koikelab.SwiftPlot-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SMKEMG for iPad";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPlot_iOS/PlotLib/SwiftPlot_iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -520,7 +520,7 @@
 				INFOPLIST_FILE = SwiftPlot_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.swift.koikelab.SwiftPlot-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SMKEMG for iPad";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPlot_iOS/PlotLib/SwiftPlot_iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 2;
