@@ -62,6 +62,8 @@ import UIKit
         self.titleField?.translatesAutoresizingMaskIntoConstraints = false
         let textFieldConstraint = NSLayoutConstraint(item: self.titleField!, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1, constant: 0)
         self.addConstraint(textFieldConstraint)
+        let bottomMarginConstraint = NSLayoutConstraint(item: self.titleField!, attribute: .BottomMargin, relatedBy: .Equal, toItem: self, attribute: .BottomMargin, multiplier: 1, constant: 5)
+        self.addConstraint(bottomMarginConstraint)
         axeLayer = SRPlotAxe(frame: self.frame, axeOrigin: CGPointZero, xPointsToShow: 1, yPointsToShow: 5)
         resizeFrameWithString(" ")
         
@@ -85,9 +87,11 @@ import UIKit
         
 //        bar.frame.origin.x = axeLayer!.innerTopRightPadding
         bar.mask = barMask
+        self.titleField?.textColor = UIColor.whiteColor()
+        self.titleField?.font = UIFont.boldSystemFontOfSize(18)
         //CALayer position is the relative position of the parent view
         
-        self.layer.backgroundColor = UIColor(red: 0, green: 0 , blue: 0, alpha:  0.05).CGColor
+//        self.layer.backgroundColor = UIColor(red: 0, green: 0 , blue: 0, alpha:  0.05).CGColor
 //        self.layer.borderColor = UIColor.darkGrayColor().CGColor
 //        self.layer.borderWidth = 1
 
@@ -112,14 +116,16 @@ import UIKit
     
     //MARK: NSView delegates
     override func layoutSubviews() {
+
         self.axeLayer?.contentsScale = UIScreen.mainScreen().scale
         self.axeLayer?.rescaleSublayers()
         self.axeLayer?.layer.frame = self.bounds
-        bar.frame = self.bounds
-        barMask.frame = self.bounds
-        barMask.bounds.size.height = self.bounds.height * 0.5
-        barMask.frame.origin.y = (bar.frame.size.height / 2) - ( bar.frame.size.height * 0.25 )
+        resizeFrameWithString(title)
 
+        bar.frame = self.axeLayer!.layer.frame;
+        barMask.frame = self.axeLayer!.layer.frame;
+        barMask.bounds.size.height = self.axeLayer!.layer.frame.height * 0.5;
+        barMask.frame.origin.y = (bar.frame.size.height / 2) - ( bar.frame.size.height * 0.25 )
 
     }
 
@@ -138,12 +144,8 @@ import UIKit
         var axeBounds = self.bounds
         axeBounds.origin.y = self.titleField!.frame.height
         axeLayer?.layer.frame.origin = axeBounds.origin
-        axeLayer?.layer.frame.size.height = self.frame.height - self.titleField!.frame.height - self.axeLayer!.innerTopRightPadding
+        axeLayer?.layer.frame.size.height = self.frame.height - (self.titleField!.frame.height * 2) - self.axeLayer!.innerTopRightPadding
         axeLayer?.layer.setNeedsDisplay()
-        //        Swift.print(axeLayer?.layer.bounds)
-        //        axeBounds.origin.y = titleField!.bounds.height
-        
-        //        Swift.print(axeBounds)
     }
     
 }
